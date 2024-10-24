@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome, <%= name %>!</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+     <!-- <link rel="stylesheet" href="/css/style.css"> -->
+</head>
+
+<body class="bg-dark text-white p-5">
+    <div class="form">
+        <h1>Create a Task</h1>
+        <form action="/create" method="post" class="col-md-4 p-10">
+            <input type="text" class="form-control mt-2 outline-none" name="title" placeholder="Title or File name">
+            <textarea class="form-control mt-2" name="description" placeholder="Description here..."></textarea>
+
+            <input type="submit" value="Create" class="btn btn-secondary mt-2">
+        </form>
+    </div>
+
+    <h1>Your Tasks</h1>
+    <div class="cards d-flex flex-wrap">
+        <% if(files.length> 0) { %>
+            <% files.forEach((data) => { %>
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <% let dataNew = data.split('-').join(' '); %>
+                            <%= dataNew.split('.txt').join('') %>
+                        </h5>
+                        <a href="/read/<%= data %>" class="btn btn-primary">Read More</a>
+                        <a href="/delete/<%= data %>" onclick="confirm('You sure?');" class="btn btn-danger">Delete</a>
+                        <a href="/update/<%= data %>" class="btn btn-info">Edit</a>
+                    </div>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <h5 class="card-title text-gray">-----No tasks yet!-----</h5>
+                    <% } %>
+    </div>
+    <% console.log(files) %>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

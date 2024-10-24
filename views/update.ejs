@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-white p-5">
+    <div class="form">
+        <h1>Update a Task Title</h1>
+        <form action="/edit" method="post" class="col-md-4 p-10">
+            <% let fileNew = filename.split('-').join(' '); %> <!-- The Real file name format is file-name.txt -->
+            <% let fileNewName = fileNew.split('.txt').join(''); %> <!-- Now I am converting the name to good form: file name (removing '-' and '.txt' in the file name) -->
+            <input type="text" class="form-control mt-2 outline-none" value="<%= filename %>" hidden name="previousname" placeholder="Previous File Name">
+            <input type="text" class="form-control mt-2 outline-none" value="<%= fileNewName %>" placeholder="Previous File Name">
+            <input type="text" class="form-control mt-2 outline-none" name="new" placeholder="New Title">
+
+            <input type="submit" value="Update" class="btn btn-secondary mt-2">
+        </form>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

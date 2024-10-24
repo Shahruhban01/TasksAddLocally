@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome!</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-white p-5">
+    <a href="/" class="btn text-white">
+        <h6>Go back</h6>
+    </a>
+    <div class="cards d-flex flex-wrap col-md-10">
+        <% let fileNew = title.split('-').join(' '); %> <!-- The Real file name format is file-name.txt -->
+            <% let TitleNew = fileNew.split(' .txt').join(' '); %>
+            <!-- Now I am converting the name to good form: file name (removing '-' and '.txt' in the file name) -->
+            <h4>
+                <%= TitleNew %>
+            </h4>
+            <p class="m-4">
+                <%= description %>
+            </p>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
